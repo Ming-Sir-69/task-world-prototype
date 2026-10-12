@@ -1,0 +1,14 @@
+{
+  "name": "task-world-prototype",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Paused, unfinished hours-long task-world exploration with synthetic data",
+  "license": "MIT",
+  "type": "module",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "build": "node scripts/build-content.mjs",
+    "test": "node --test qa/*-tests.mjs && node dist/vendor/pixel-agents/self-test.mjs",
+    "validate": "node scripts/build-content.mjs --validate-only"
+  }
+}

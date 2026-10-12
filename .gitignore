@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+*.log
+*.tmp
+qa/browser-*.png
+qa/browser-results*.json
+.env
+.env.*

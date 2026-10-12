@@ -1,0 +1,1041 @@
+{
+  "snapshot": {
+    "updatedAt": "2000-01-01",
+    "checkedAt": "2000-01-01",
+    "synthetic": true,
+    "readOnly": true,
+    "runtimeAI": false,
+    "note": "完全合成的演示数据；日期也仅是示例。"
+  },
+  "evidence": [
+    {
+      "id": "demo-reference",
+      "label": "合成示例说明",
+      "sourceDate": "2000-01-01",
+      "checkedAt": "2000-01-01",
+      "evidenceStatus": "虚构，无现实来源"
+    }
+  ],
+  "worlds": [
+    {
+      "id": "garden",
+      "number": "01",
+      "name": "彩灯花园",
+      "subject": "纸灯布置",
+      "state": "planned",
+      "label": "示例 · 待开始",
+      "summary": "完全虚构的小岛示例，用于探索界面。",
+      "primaryNode": "garden-stage-1",
+      "sourceRefs": [
+        "demo-reference"
+      ],
+      "nodes": [
+        {
+          "id": "garden-stage-1",
+          "number": "01",
+          "title": "草图桌",
+          "station": "彩灯花园 · 草图桌",
+          "short": "示例 · 待开始",
+          "state": "planned",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是彩灯花园的虚构草图桌。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "garden-stage-2",
+          "number": "02",
+          "title": "试摆台",
+          "station": "彩灯花园 · 试摆台",
+          "short": "示例 · 待检查",
+          "state": "review",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是彩灯花园的虚构试摆台。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "garden-stage-3",
+          "number": "03",
+          "title": "观察角",
+          "station": "彩灯花园 · 观察角",
+          "short": "示例 · 条件不足",
+          "state": "blocked",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是彩灯花园的虚构观察角。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "garden-stage-1",
+          "to": "garden-stage-2",
+          "kind": "planned",
+          "label": "虚构连线"
+        }
+      ],
+      "npc": {
+        "name": "小灯",
+        "role": "虚构讲解员",
+        "execution": "固定示例",
+        "executionNote": "无真实人物、后台任务或项目关联。",
+        "dialogue": {
+          "progress": [
+            "彩灯花园是一处虚构地点。",
+            "这是彩灯花园的虚构草图桌。当前状态仅用于展示界面。"
+          ],
+          "results": [
+            "彩灯花园是一处虚构地点。",
+            "摆放了一个想象中的纸质样品，用于测试记录展示。"
+          ],
+          "blockers": [
+            "彩灯花园是一处虚构地点。",
+            "示例假设还缺少一种彩纸。"
+          ],
+          "nextSteps": [
+            "彩灯花园是一处虚构地点。",
+            "如果继续玩这个示例，可以到另一张桌子阅读。"
+          ]
+        }
+      }
+    },
+    {
+      "id": "harbor",
+      "number": "02",
+      "name": "纸船港",
+      "subject": "折纸航线",
+      "state": "review",
+      "label": "示例 · 待检查",
+      "summary": "完全虚构的小岛示例，用于探索界面。",
+      "primaryNode": "harbor-stage-1",
+      "sourceRefs": [
+        "demo-reference"
+      ],
+      "nodes": [
+        {
+          "id": "harbor-stage-1",
+          "number": "01",
+          "title": "草图桌",
+          "station": "纸船港 · 草图桌",
+          "short": "示例 · 待检查",
+          "state": "review",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是纸船港的虚构草图桌。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "harbor-stage-2",
+          "number": "02",
+          "title": "试摆台",
+          "station": "纸船港 · 试摆台",
+          "short": "示例 · 条件不足",
+          "state": "blocked",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是纸船港的虚构试摆台。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "harbor-stage-3",
+          "number": "03",
+          "title": "观察角",
+          "station": "纸船港 · 观察角",
+          "short": "示例 · 暂停",
+          "state": "paused",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是纸船港的虚构观察角。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "harbor-stage-1",
+          "to": "harbor-stage-2",
+          "kind": "planned",
+          "label": "虚构连线"
+        }
+      ],
+      "npc": {
+        "name": "小帆",
+        "role": "虚构讲解员",
+        "execution": "固定示例",
+        "executionNote": "无真实人物、后台任务或项目关联。",
+        "dialogue": {
+          "progress": [
+            "纸船港是一处虚构地点。",
+            "这是纸船港的虚构草图桌。当前状态仅用于展示界面。"
+          ],
+          "results": [
+            "纸船港是一处虚构地点。",
+            "摆放了一个想象中的纸质样品，用于测试记录展示。"
+          ],
+          "blockers": [
+            "纸船港是一处虚构地点。",
+            "示例假设还缺少一种彩纸。"
+          ],
+          "nextSteps": [
+            "纸船港是一处虚构地点。",
+            "如果继续玩这个示例，可以到另一张桌子阅读。"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chimes",
+      "number": "03",
+      "name": "风铃馆",
+      "subject": "铃声陈列",
+      "state": "blocked",
+      "label": "示例 · 条件不足",
+      "summary": "完全虚构的小岛示例，用于探索界面。",
+      "primaryNode": "chimes-stage-1",
+      "sourceRefs": [
+        "demo-reference"
+      ],
+      "nodes": [
+        {
+          "id": "chimes-stage-1",
+          "number": "01",
+          "title": "草图桌",
+          "station": "风铃馆 · 草图桌",
+          "short": "示例 · 条件不足",
+          "state": "blocked",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是风铃馆的虚构草图桌。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "chimes-stage-2",
+          "number": "02",
+          "title": "试摆台",
+          "station": "风铃馆 · 试摆台",
+          "short": "示例 · 暂停",
+          "state": "paused",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是风铃馆的虚构试摆台。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "chimes-stage-3",
+          "number": "03",
+          "title": "观察角",
+          "station": "风铃馆 · 观察角",
+          "short": "示例 · 未确定",
+          "state": "unknown",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是风铃馆的虚构观察角。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "chimes-stage-1",
+          "to": "chimes-stage-2",
+          "kind": "planned",
+          "label": "虚构连线"
+        }
+      ],
+      "npc": {
+        "name": "小铃",
+        "role": "虚构讲解员",
+        "execution": "固定示例",
+        "executionNote": "无真实人物、后台任务或项目关联。",
+        "dialogue": {
+          "progress": [
+            "风铃馆是一处虚构地点。",
+            "这是风铃馆的虚构草图桌。当前状态仅用于展示界面。"
+          ],
+          "results": [
+            "风铃馆是一处虚构地点。",
+            "摆放了一个想象中的纸质样品，用于测试记录展示。"
+          ],
+          "blockers": [
+            "风铃馆是一处虚构地点。",
+            "示例假设还缺少一种彩纸。"
+          ],
+          "nextSteps": [
+            "风铃馆是一处虚构地点。",
+            "如果继续玩这个示例，可以到另一张桌子阅读。"
+          ]
+        }
+      }
+    },
+    {
+      "id": "seeds",
+      "number": "04",
+      "name": "种子屋",
+      "subject": "想象花圃",
+      "state": "paused",
+      "label": "示例 · 暂停",
+      "summary": "完全虚构的小岛示例，用于探索界面。",
+      "primaryNode": "seeds-stage-1",
+      "sourceRefs": [
+        "demo-reference"
+      ],
+      "nodes": [
+        {
+          "id": "seeds-stage-1",
+          "number": "01",
+          "title": "草图桌",
+          "station": "种子屋 · 草图桌",
+          "short": "示例 · 暂停",
+          "state": "paused",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是种子屋的虚构草图桌。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "seeds-stage-2",
+          "number": "02",
+          "title": "试摆台",
+          "station": "种子屋 · 试摆台",
+          "short": "示例 · 未确定",
+          "state": "unknown",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是种子屋的虚构试摆台。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "seeds-stage-3",
+          "number": "03",
+          "title": "观察角",
+          "station": "种子屋 · 观察角",
+          "short": "示例 · 阶段完成",
+          "state": "done",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是种子屋的虚构观察角。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "seeds-stage-1",
+          "to": "seeds-stage-2",
+          "kind": "planned",
+          "label": "虚构连线"
+        }
+      ],
+      "npc": {
+        "name": "小芽",
+        "role": "虚构讲解员",
+        "execution": "固定示例",
+        "executionNote": "无真实人物、后台任务或项目关联。",
+        "dialogue": {
+          "progress": [
+            "种子屋是一处虚构地点。",
+            "这是种子屋的虚构草图桌。当前状态仅用于展示界面。"
+          ],
+          "results": [
+            "种子屋是一处虚构地点。",
+            "摆放了一个想象中的纸质样品，用于测试记录展示。"
+          ],
+          "blockers": [
+            "种子屋是一处虚构地点。",
+            "示例假设还缺少一种彩纸。"
+          ],
+          "nextSteps": [
+            "种子屋是一处虚构地点。",
+            "如果继续玩这个示例，可以到另一张桌子阅读。"
+          ]
+        }
+      }
+    },
+    {
+      "id": "clouds",
+      "number": "05",
+      "name": "云朵台",
+      "subject": "云形拼图",
+      "state": "unknown",
+      "label": "示例 · 未确定",
+      "summary": "完全虚构的小岛示例，用于探索界面。",
+      "primaryNode": "clouds-stage-1",
+      "sourceRefs": [
+        "demo-reference"
+      ],
+      "nodes": [
+        {
+          "id": "clouds-stage-1",
+          "number": "01",
+          "title": "草图桌",
+          "station": "云朵台 · 草图桌",
+          "short": "示例 · 未确定",
+          "state": "unknown",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是云朵台的虚构草图桌。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "clouds-stage-2",
+          "number": "02",
+          "title": "试摆台",
+          "station": "云朵台 · 试摆台",
+          "short": "示例 · 阶段完成",
+          "state": "done",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是云朵台的虚构试摆台。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "clouds-stage-3",
+          "number": "03",
+          "title": "观察角",
+          "station": "云朵台 · 观察角",
+          "short": "示例 · 待开始",
+          "state": "planned",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是云朵台的虚构观察角。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "clouds-stage-1",
+          "to": "clouds-stage-2",
+          "kind": "planned",
+          "label": "虚构连线"
+        }
+      ],
+      "npc": {
+        "name": "小云",
+        "role": "虚构讲解员",
+        "execution": "固定示例",
+        "executionNote": "无真实人物、后台任务或项目关联。",
+        "dialogue": {
+          "progress": [
+            "云朵台是一处虚构地点。",
+            "这是云朵台的虚构草图桌。当前状态仅用于展示界面。"
+          ],
+          "results": [
+            "云朵台是一处虚构地点。",
+            "摆放了一个想象中的纸质样品，用于测试记录展示。"
+          ],
+          "blockers": [
+            "云朵台是一处虚构地点。",
+            "示例假设还缺少一种彩纸。"
+          ],
+          "nextSteps": [
+            "云朵台是一处虚构地点。",
+            "如果继续玩这个示例，可以到另一张桌子阅读。"
+          ]
+        }
+      }
+    },
+    {
+      "id": "stars",
+      "number": "06",
+      "name": "星砂亭",
+      "subject": "星点摆放",
+      "state": "done",
+      "label": "示例 · 阶段完成",
+      "summary": "完全虚构的小岛示例，用于探索界面。",
+      "primaryNode": "stars-stage-1",
+      "sourceRefs": [
+        "demo-reference"
+      ],
+      "nodes": [
+        {
+          "id": "stars-stage-1",
+          "number": "01",
+          "title": "草图桌",
+          "station": "星砂亭 · 草图桌",
+          "short": "示例 · 阶段完成",
+          "state": "done",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是星砂亭的虚构草图桌。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "stars-stage-2",
+          "number": "02",
+          "title": "试摆台",
+          "station": "星砂亭 · 试摆台",
+          "short": "示例 · 待开始",
+          "state": "planned",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是星砂亭的虚构试摆台。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        },
+        {
+          "id": "stars-stage-3",
+          "number": "03",
+          "title": "观察角",
+          "station": "星砂亭 · 观察角",
+          "short": "示例 · 待检查",
+          "state": "review",
+          "detail": "完全合成的演示记录。",
+          "next": "阅读另一个虚构示例。",
+          "evidence": "合成数据，无现实来源。",
+          "sourceRefs": [
+            "demo-reference"
+          ],
+          "sections": {
+            "progress": [
+              "这是星砂亭的虚构观察角。当前状态仅用于展示界面。",
+              "内容由演示数据提供，不对应现实项目或人物。"
+            ],
+            "results": [
+              "摆放了一个想象中的纸质样品，用于测试记录展示。",
+              "这句话不是实际交付或验收证明。"
+            ],
+            "blockers": [
+              "示例假设还缺少一种彩纸。",
+              "此条件完全虚构，不需要购买物品或执行真实任务。"
+            ],
+            "nextSteps": [
+              "如果继续玩这个示例，可以到另一张桌子阅读。",
+              "浏览与对话只改变本机阅读记录。"
+            ]
+          },
+          "conversations": [
+            {
+              "question": "这是真实项目吗？",
+              "answer": [
+                "不是。名称、人物、状态、日期和流程均为虚构。"
+              ],
+              "topic": "progress"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "stars-stage-1",
+          "to": "stars-stage-2",
+          "kind": "planned",
+          "label": "虚构连线"
+        }
+      ],
+      "npc": {
+        "name": "小砂",
+        "role": "虚构讲解员",
+        "execution": "固定示例",
+        "executionNote": "无真实人物、后台任务或项目关联。",
+        "dialogue": {
+          "progress": [
+            "星砂亭是一处虚构地点。",
+            "这是星砂亭的虚构草图桌。当前状态仅用于展示界面。"
+          ],
+          "results": [
+            "星砂亭是一处虚构地点。",
+            "摆放了一个想象中的纸质样品，用于测试记录展示。"
+          ],
+          "blockers": [
+            "星砂亭是一处虚构地点。",
+            "示例假设还缺少一种彩纸。"
+          ],
+          "nextSteps": [
+            "星砂亭是一处虚构地点。",
+            "如果继续玩这个示例，可以到另一张桌子阅读。"
+          ]
+        }
+      }
+    }
+  ]
+}
