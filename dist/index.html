@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#172a28"><meta name="description" content="未完成的任务世界探索原型。全部内容为虚构示例。"><title>Task World Prototype · 未完成</title><link rel="stylesheet" href="style.css"></head>
+<body><main id="game" aria-label="可探索的项目世界"><canvas id="world-canvas" tabindex="0" aria-label="方向键或 WASD 移动，靠近路标按 E 交互，Esc 返回"></canvas>
+<header class="hud top-hud"><div class="place"><span class="place-icon">星</span><div><span id="level-label">第 1 层 · 世界</span><h1 id="place-title">虚构任务小岛</h1></div></div><nav class="actions" aria-label="探索工具"><button id="back-button" title="Esc 返回上一层"><span>返回</span></button><button id="journal-button" title="J 打开探索手记"><span>手记</span><b id="journal-count">0</b></button><button id="map-button" title="M 查看导览"><span>导览</span></button><button id="help-button" title="操作说明">?</button><button id="fullscreen-button" title="全屏漫游">全屏</button></nav></header>
+<div class="breadcrumb hud" id="breadcrumb"></div><aside id="objective" class="hud objective"><span class="eyebrow">今天从这里开始</span><strong id="objective-title">沿石径，寻找项目路标</strong><p id="objective-detail">所有项目、角色与记录都是虚构示例。靠近路标后按 E 进入。</p><button id="clear-target" hidden>取消路线提示</button></aside>
+<aside class="minimap hud"><canvas id="minimap" width="184" height="128" aria-label="当前位置小地图"></canvas><span id="map-caption">世界 · 6 片领地</span></aside>
+<div class="hud snapshot"><i></i><span id="snapshot-label">未完成 · 虚构示例</span><button id="sources-button">依据</button></div>
+<div id="interaction-prompt" class="interaction-prompt" hidden><kbd>E</kbd><span></span><small>Enter / 点按也可以</small></div>
+<div id="toast" role="status" class="toast" hidden></div>
+<footer class="hud controls"><span><kbd>↑↓←→</kbd> / <kbd>WASD</kbd> 移动</span><span><kbd>E</kbd> 交互</span><span><kbd>Esc</kbd> 返回</span><span class="safe-note">游历记录 ≠ 项目完成</span></footer>
+<div id="touch-controls" aria-label="触屏控制"><div class="dpad"><button data-dir="up" class="up" aria-label="向上">▲</button><button data-dir="left" class="left" aria-label="向左">◀</button><span></span><button data-dir="right" class="right" aria-label="向右">▶</button><button data-dir="down" class="down" aria-label="向下">▼</button></div><button id="touch-action" data-dir="interact">交互<br><small>E</small></button></div>
+<div id="scene-transition" aria-hidden="true"></div>
+</main>
+<dialog id="panel" aria-labelledby="panel-title"><div class="panel-top"><span id="panel-kicker">漫游手记</span><button id="panel-close" aria-label="关闭">×</button></div><div id="panel-content"></div><div class="panel-bottom"><span>固定档案对话 · 无实时 AI · 不执行项目</span><span>Esc 关闭</span></div></dialog>
+<script src="content.js"></script><script type="module" src="app.js"></script></body></html>
