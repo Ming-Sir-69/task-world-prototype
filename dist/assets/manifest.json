@@ -1,0 +1,27 @@
+{
+  "generator": "OpenAI image generation",
+  "referenceAssets": "No third-party asset inputs",
+  "provenance": "Original AI-generated generic scenes. C2PA generation metadata retained.",
+  "images": [
+    {
+      "file": "archive.png",
+      "bytes": 3032833,
+      "sha256": "c60d411d1486a4a93b61ab73ace0a51f01bef4e71ac29d1460cee41ae7c713fb"
+    },
+    {
+      "file": "island.png",
+      "bytes": 4087947,
+      "sha256": "04f479109eb030a0175c7ac9f328099bbad5554c70f416a0912b2d21c07cbfce"
+    },
+    {
+      "file": "studio.png",
+      "bytes": 2585343,
+      "sha256": "00ccbc14670f462b8c54bd394d6549075f53fa9b8b11e2e894a8c61788d9a77c"
+    },
+    {
+      "file": "workshop.png",
+      "bytes": 2501718,
+      "sha256": "f74c0b11cf0a4b038e232a2d6ac0786465949e3e16f0b7497d21028c8fcdf803"
+    }
+  ]
+}
