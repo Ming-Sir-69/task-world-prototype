@@ -1,0 +1,262 @@
+Pixel Agents upstream source excerpts
+Copyright (c) 2026 Pablo De Lucca
+MIT; full notice: ./LICENSE
+Pinned commit: d1e007a9fdf3003c252d2973abe1999ae59aec33
+
+These excerpts are evidence; they are not loaded or executed by the application.
+
+--- webview-ui/src/office/engine/gameLoop.ts lines 9-36 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/engine/gameLoop.ts#L9-L36
+9: export function startGameLoop(canvas: HTMLCanvasElement, callbacks: GameLoopCallbacks): () => void {
+10:   const ctx = canvas.getContext('2d')!;
+11:   ctx.imageSmoothingEnabled = false;
+12: 
+13:   let lastTime = 0;
+14:   let rafId = 0;
+15:   let stopped = false;
+16: 
+17:   const frame = (time: number) => {
+18:     if (stopped) return;
+19:     const dt = lastTime === 0 ? 0 : Math.min((time - lastTime) / 1000, MAX_DELTA_TIME_SEC);
+20:     lastTime = time;
+21: 
+22:     callbacks.update(dt);
+23: 
+24:     ctx.imageSmoothingEnabled = false;
+25:     callbacks.render(ctx);
+26: 
+27:     rafId = requestAnimationFrame(frame);
+28:   };
+29: 
+30:   rafId = requestAnimationFrame(frame);
+31: 
+32:   return () => {
+33:     stopped = true;
+34:     cancelAnimationFrame(rafId);
+35:   };
+36: }
+
+--- webview-ui/src/office/layout/tileMap.ts lines 37-105 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/layout/tileMap.ts#L37-L105
+37: /** BFS pathfinding on 4-connected grid (no diagonals). Returns path excluding start, including end. */
+38: export function findPath(
+39:   startCol: number,
+40:   startRow: number,
+41:   endCol: number,
+42:   endRow: number,
+43:   tileMap: TileType[][],
+44:   blockedTiles: Set<string>,
+45: ): Array<{ col: number; row: number }> {
+46:   if (startCol === endCol && startRow === endRow) return [];
+47: 
+48:   const key = (c: number, r: number) => `${c},${r}`;
+49:   const startKey = key(startCol, startRow);
+50:   const endKey = key(endCol, endRow);
+51: 
+52:   // End must be walkable (or be a chair tile which may be adjacent to desk)
+53:   // We allow the end tile even if it's not strictly walkable for chair positions
+54:   const endWalkable = isWalkable(endCol, endRow, tileMap, blockedTiles);
+55:   if (!endWalkable) {
+56:     // If the end is a desk tile, we still can't path there
+57:     return [];
+58:   }
+59: 
+60:   const visited = new Set<string>();
+61:   visited.add(startKey);
+62: 
+63:   const parent = new Map<string, string>();
+64:   const queue: Array<{ col: number; row: number }> = [{ col: startCol, row: startRow }];
+65: 
+66:   const dirs = [
+67:     { dc: 0, dr: -1 }, // up
+68:     { dc: 0, dr: 1 }, // down
+69:     { dc: -1, dr: 0 }, // left
+70:     { dc: 1, dr: 0 }, // right
+71:   ];
+72: 
+73:   while (queue.length > 0) {
+74:     const curr = queue.shift()!;
+75:     const currKey = key(curr.col, curr.row);
+76: 
+77:     if (currKey === endKey) {
+78:       // Reconstruct path
+79:       const path: Array<{ col: number; row: number }> = [];
+80:       let k = endKey;
+81:       while (k !== startKey) {
+82:         const [c, r] = k.split(',').map(Number);
+83:         path.unshift({ col: c, row: r });
+84:         k = parent.get(k)!;
+85:       }
+86:       return path;
+87:     }
+88: 
+89:     for (const d of dirs) {
+90:       const nc = curr.col + d.dc;
+91:       const nr = curr.row + d.dr;
+92:       const nk = key(nc, nr);
+93: 
+94:       if (visited.has(nk)) continue;
+95:       if (!isWalkable(nc, nr, tileMap, blockedTiles)) continue;
+96: 
+97:       visited.add(nk);
+98:       parent.set(nk, currKey);
+99:       queue.push({ col: nc, row: nr });
+100:     }
+101:   }
+102: 
+103:   // No path found
+104:   return [];
+105: }
+
+--- webview-ui/src/office/engine/characters.ts lines 26-47 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/engine/characters.ts#L26-L47
+26: /** Pixel center of a tile */
+27: function tileCenter(col: number, row: number): { x: number; y: number } {
+28:   return {
+29:     x: col * TILE_SIZE + TILE_SIZE / 2,
+30:     y: row * TILE_SIZE + TILE_SIZE / 2,
+31:   };
+32: }
+33: 
+34: /** Direction from one tile to an adjacent tile */
+35: function directionBetween(
+36:   fromCol: number,
+37:   fromRow: number,
+38:   toCol: number,
+39:   toRow: number,
+40: ): Direction {
+41:   const dc = toCol - fromCol;
+42:   const dr = toRow - fromRow;
+43:   if (dc > 0) return Direction.RIGHT;
+44:   if (dc < 0) return Direction.LEFT;
+45:   if (dr > 0) return Direction.DOWN;
+46:   return Direction.UP;
+47: }
+
+--- webview-ui/src/office/engine/characters.ts lines 56-73 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/engine/characters.ts#L56-L73
+56:   const col = seat ? seat.seatCol : 1;
+57:   const row = seat ? seat.seatRow : 1;
+58:   const center = tileCenter(col, row);
+59:   return {
+60:     id,
+61:     state: CharacterState.TYPE,
+62:     dir: seat ? seat.facingDir : Direction.DOWN,
+63:     x: center.x,
+64:     y: center.y,
+65:     tileCol: col,
+66:     tileRow: row,
+67:     path: [],
+68:     moveProgress: 0,
+69:     currentTool: null,
+70:     palette,
+71:     hueShift,
+72:     frame: 0,
+73:     frameTimer: 0,
+
+--- webview-ui/src/office/engine/characters.ts lines 213-218 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/engine/characters.ts#L213-L218
+213:     case CharacterState.WALK: {
+214:       // Walk animation
+215:       if (ch.frameTimer >= WALK_FRAME_DURATION_SEC) {
+216:         ch.frameTimer -= WALK_FRAME_DURATION_SEC;
+217:         ch.frame = (ch.frame + 1) % 4;
+218:       }
+
+--- webview-ui/src/office/engine/characters.ts lines 271-291 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/engine/characters.ts#L271-L291
+271:       // Move toward next tile in path
+272:       const nextTile = ch.path[0];
+273:       ch.dir = directionBetween(ch.tileCol, ch.tileRow, nextTile.col, nextTile.row);
+274: 
+275:       ch.moveProgress += (WALK_SPEED_PX_PER_SEC / TILE_SIZE) * dt;
+276: 
+277:       const fromCenter = tileCenter(ch.tileCol, ch.tileRow);
+278:       const toCenter = tileCenter(nextTile.col, nextTile.row);
+279:       const t = Math.min(ch.moveProgress, 1);
+280:       ch.x = fromCenter.x + (toCenter.x - fromCenter.x) * t;
+281:       ch.y = fromCenter.y + (toCenter.y - fromCenter.y) * t;
+282: 
+283:       if (ch.moveProgress >= 1) {
+284:         // Arrived at next tile
+285:         ch.tileCol = nextTile.col;
+286:         ch.tileRow = nextTile.row;
+287:         ch.x = toCenter.x;
+288:         ch.y = toCenter.y;
+289:         ch.path.shift();
+290:         ch.moveProgress = 0;
+291:       }
+
+--- webview-ui/src/office/sprites/spriteCache.ts lines 3-3 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/sprites/spriteCache.ts#L3-L3
+3: const zoomCaches = new Map<number, WeakMap<SpriteData, HTMLCanvasElement>>();
+
+--- webview-ui/src/office/sprites/spriteCache.ts lines 48-77 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/sprites/spriteCache.ts#L48-L77
+48: export function getCachedSprite(sprite: SpriteData, zoom: number): HTMLCanvasElement {
+49:   let cache = zoomCaches.get(zoom);
+50:   if (!cache) {
+51:     cache = new WeakMap();
+52:     zoomCaches.set(zoom, cache);
+53:   }
+54: 
+55:   const cached = cache.get(sprite);
+56:   if (cached) return cached;
+57: 
+58:   const rows = sprite.length;
+59:   const cols = sprite[0].length;
+60:   const canvas = document.createElement('canvas');
+61:   canvas.width = cols * zoom;
+62:   canvas.height = rows * zoom;
+63:   const ctx = canvas.getContext('2d')!;
+64:   ctx.imageSmoothingEnabled = false;
+65: 
+66:   for (let r = 0; r < rows; r++) {
+67:     for (let c = 0; c < cols; c++) {
+68:       const color = sprite[r][c];
+69:       if (color === '') continue;
+70:       ctx.fillStyle = color;
+71:       ctx.fillRect(c * zoom, r * zoom, zoom, zoom);
+72:     }
+73:   }
+74: 
+75:   cache.set(sprite, canvas);
+76:   return canvas;
+77: }
+
+--- webview-ui/src/office/engine/renderer.ts lines 486-491 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/engine/renderer.ts#L486-L491
+486:   // Sort by Y (lower = in front = drawn later)
+487:   drawables.sort((a, b) => a.zY - b.zY);
+488: 
+489:   for (const d of drawables) {
+490:     d.draw(ctx);
+491:   }
+
+--- webview-ui/src/office/types.ts lines 36-45 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/types.ts#L36-L45
+36: export const Direction = {
+37:   DOWN: 0,
+38:   LEFT: 1,
+39:   RIGHT: 2,
+40:   UP: 3,
+41: } as const;
+42: export type Direction = (typeof Direction)[keyof typeof Direction];
+43: 
+44: /** 2D array of hex color strings: '' = transparent, '#RRGGBB' = opaque, '#RRGGBBAA' = semi-transparent. [row][col] */
+45: export type SpriteData = string[][];
+
+--- webview-ui/src/constants.ts lines 4-4 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/constants.ts#L4-L4
+4: export const TILE_SIZE = 16;
+
+--- webview-ui/src/constants.ts lines 11-12 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/constants.ts#L11-L12
+11: export const WALK_SPEED_PX_PER_SEC = 48;
+12: export const WALK_FRAME_DURATION_SEC = 0.15;
+
+--- webview-ui/src/constants.ts lines 196-196 ---
+https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/constants.ts#L196-L196
+196: export const MAX_DELTA_TIME_SEC = 0.1;
+
+

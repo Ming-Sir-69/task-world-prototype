@@ -1,0 +1,147 @@
+{
+  "name": "Pixel Agents minimal rendering/movement adaptation",
+  "repository": "https://github.com/pixel-agents-hq/pixel-agents",
+  "commit": "d1e007a9fdf3003c252d2973abe1999ae59aec33",
+  "verifiedAt": "2026-10-12",
+  "branchObserved": "main",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Pablo De Lucca",
+  "licenseFile": "./LICENSE",
+  "artworkCopied": false,
+  "dependencies": [],
+  "sources": [
+    {
+      "path": "webview-ui/src/office/engine/gameLoop.ts",
+      "blobSha": "6333cf17a9fa32135aa906c9c87804d081acd368",
+      "ranges": [
+        [
+          9,
+          36
+        ]
+      ],
+      "purpose": "rAF lifecycle, clamped dt and stop closure",
+      "treatment": "adapted",
+      "url": "https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/engine/gameLoop.ts"
+    },
+    {
+      "path": "webview-ui/src/office/layout/tileMap.ts",
+      "blobSha": "5b80cc0397cffc146a9f50e0a217cea403befc66",
+      "ranges": [
+        [
+          37,
+          105
+        ]
+      ],
+      "purpose": "four-neighbor BFS, visited/parent map and path reconstruction",
+      "treatment": "lightly-adapted",
+      "url": "https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/layout/tileMap.ts"
+    },
+    {
+      "path": "webview-ui/src/office/engine/characters.ts",
+      "blobSha": "005253d48b7259c2d5a793781ee53f66b09584be",
+      "ranges": [
+        [
+          26,
+          47
+        ],
+        [
+          56,
+          73
+        ],
+        [
+          213,
+          218
+        ],
+        [
+          271,
+          291
+        ]
+      ],
+      "purpose": "tile-center/direction helpers and walking interpolation/frame arithmetic",
+      "treatment": "adapted",
+      "url": "https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/engine/characters.ts"
+    },
+    {
+      "path": "webview-ui/src/office/sprites/spriteCache.ts",
+      "blobSha": "5c320f910594b653afccf1b8b645136a6e82a731",
+      "ranges": [
+        [
+          3,
+          3
+        ],
+        [
+          48,
+          77
+        ]
+      ],
+      "purpose": "per-scale WeakMap cache, pixel-array canvas rasterization",
+      "treatment": "lightly-adapted",
+      "url": "https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/sprites/spriteCache.ts"
+    },
+    {
+      "path": "webview-ui/src/office/engine/renderer.ts",
+      "blobSha": "89528f8970a0c95a3286646a1deb96465e36039d",
+      "ranges": [
+        [
+          486,
+          491
+        ]
+      ],
+      "purpose": "ascending Y depth comparator",
+      "treatment": "adapted",
+      "url": "https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/engine/renderer.ts"
+    },
+    {
+      "path": "webview-ui/src/office/types.ts",
+      "blobSha": "980c93ea688623817246d713c3ab255fd0bfa796",
+      "ranges": [
+        [
+          36,
+          45
+        ]
+      ],
+      "purpose": "Direction values and SpriteData representation",
+      "treatment": "reference",
+      "url": "https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/office/types.ts"
+    },
+    {
+      "path": "webview-ui/src/constants.ts",
+      "blobSha": "f8d8f4b37166ce5d8bfa045ad2ce5fd5fe7d0859",
+      "ranges": [
+        [
+          4,
+          4
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          196,
+          196
+        ]
+      ],
+      "purpose": "tile, speed, frame duration and maximum delta values",
+      "treatment": "reference",
+      "url": "https://github.com/pixel-agents-hq/pixel-agents/blob/d1e007a9fdf3003c252d2973abe1999ae59aec33/webview-ui/src/constants.ts"
+    }
+  ],
+  "alsoInspected": [
+    "webview-ui/src/office/sprites/index.ts",
+    "webview-ui/src/office/sprites/spriteData.ts"
+  ],
+  "projectOriginal": [
+    "Public callback-only startAnimationLoop signature and callback-stop safety",
+    "Boolean-grid point argument adapter and input guards",
+    "Visual walker factory and path distance carry-over, idle reset and cardinal validation",
+    "Non-mutating depth-sort wrapper and zY/depth/y fallbacks",
+    "Public drawSprite validation/coordinate wrapper",
+    "Tests, documentation and provenance manifest"
+  ],
+  "excluded": [
+    "All upstream PNGs, office/furniture/floor/carpet/wall/bubble artwork",
+    "Office layout editor and seat/typing/wandering state machine",
+    "Task runner, agent hooks, terminal/server/API integrations",
+    "Upstream complete repository and package installation"
+  ]
+}
